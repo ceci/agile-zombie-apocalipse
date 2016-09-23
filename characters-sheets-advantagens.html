@@ -1,0 +1,151 @@
+<meta charset="UTF-8">
+
+<ul id="fichas">
+	<li class="template">
+		<dt class="name"><strong>Nome:</strong> </dt>
+		<dd class="occupation"><strong>Profissão:</strong> </dd>
+		<dd class="hobbies"><strong>Hobbies:</strong> </dd>
+		<dd class="handicap"><strong>Handicap:</strong> </dd>
+		<dd class="advantages"><strong>Vantagens:</strong> </dd>
+		<dd class="disadvantages"><strong>Desvantagens:</strong> </dd>
+		<br/><hr/><br/>
+	</li>
+</ul>
+
+<style type="text/css">
+	ul {
+		list-style: none;
+	}
+
+	dd {
+		text-indent: none;
+	}
+</style>
+
+<script type="text/javascript">
+var personagens = [
+	{ profissao: 'motorista de uber',
+		hobby: 'Crossfit',
+		outroHobby: 'desmontar coisas',
+		handicap: 'acumulador',
+		vantagens: ["atacar", "barricar", "eletromecânico"],
+		desvantagens: ["carregar"] },
+	{ profissao: 'instalador de tv a cabo',
+		hobby: 'tocar instrumento',
+		outroHobby: 'jogos de bar',
+		handicap: 'usa crocs', 
+		vantagens: ["carregar", "eletromecânico", "conhecimentos gerais"],
+		desvantagens: ["mudar de ambiente"] },
+	{ profissao: 'psicólogo',
+		hobby: 'cozinhar',
+		outroHobby: 'correr',
+		handicap: 'diabetico',
+		vantagens: ["cozinhar", "mudar de ambiente"],
+		desvantagens: ["precisa de insulina"] },
+	{ profissao: 'artista',
+		hobby: 'mentir',
+		outroHobby: 'airsoft',
+		handicap: 'asma',
+		vantagens: ["conhecimentos gerais", "procurar um local"],
+		desvantagens: ["mudar de ambiente"] },
+	{ profissao: 'consultor de seguros',
+		hobby: 'fazer drinks',
+		outroHobby: 'meditacao',
+		handicap: 'claustrofobia',
+		vantagens: ["cozinhar", "procurar coisa", "atendimento médico"],
+		desvantagens: ["barricar"] },
+	{ profissao: 'advogado',
+		hobby: 'pintar',
+		outroHobby: 'danca',
+		handicap: 'medo de altura',
+		vantagens: ["procurar coisa", "mudar de ambiente", "atacar"],
+		desvantagens: ["ajudar"] },
+	{ profissao: 'mecânico',
+		hobby: 'criar plantas',
+		outroHobby: 'construir robos',
+		handicap: 'perda de memoria recente',
+		vantagens: ["cozinhar", "eletromecânico"],
+		desvantagens: ["conhecimentos gerais"] },
+	{ profissao: 'astrologo',
+		hobby: 'esportes radicais',
+		outroHobby: 'velejar',
+		handicap: 'daltonico',
+		vantagens: ["atacar", "carregar", "cozinhar"],
+		desvantagens: ["procurar coisa"] },
+	{ profissao: 'manicure',
+		hobby: 'fotografia',
+		outroHobby: 'artesanato',
+		handicap: 'hipocondríaco',
+		vantagens: ["procurar um local", "procurar coisa"],
+		desvantagens: ["atendimento medico"] },
+	{ profissao: 'estudante',
+		hobby: 'counter striker',
+		outroHobby: 'ufologia',
+		handicap: 'comportamento anti-social',
+		vantagens: ["procurar coisa", "conhecimentos gerais"],
+		desvantagens: ["ajudar"] },
+	{ profissao: 'dev',
+		hobby: 'desafios de lógica',
+		outroHobby: 'slackline',
+		handicap: 'vegetariano',
+		vantagens: ["conhecimentos gerais", "procurar um local", "carregar"],
+		desvantagens: ["cozinhar"] },
+	{ profissao: 'psicólogo',
+		hobby: 'criar animais',
+		outroHobby: 'costurar',
+		handicap: 'canhoto',
+		vantagens: ["cozinhar", "atendimento médico", "procurar coisa"],
+		desvantagens: ["eletromecânico"] },
+	{ profissao: 'medico',
+		hobby: 'pilotar drones',
+		outroHobby: 'astronomia',
+		handicap: 'mania por limpeza',
+		vantagens: ["eletromecânico", "procurar um local", "conhecimentos gerais"],
+		desvantagens: ["barricar"] },
+	{ profissao: 'relojoeiro',
+		hobby: 'musica',
+		outroHobby: 'colecionar selos',
+		handicap: 'miope',
+		vantagens: ["conhecimentos gerais", "procurar coisa"],
+		desvantagens: ["procurar um local"] },
+	{ profissao: 'arquiteto',
+		hobby: 'baladeiro',
+		outroHobby: 'mímica',
+		handicap: 'não fala a lingua do grupo',
+		vantagens: ["mudar de ambiente", "atacar", "conhecimentos gerais"],
+		desvantagens: ["ajudar"] },
+	{ profissao: 'chaveiro',
+		hobby: 'parkour',
+		outroHobby: 'yoga',
+		handicap: 'pacifista',
+		vantagens: ["mudar de ambiente", "procurar coisa", "atendimento médico"],
+		desvantagens: ["atacar"] },
+	{ profissao: 'professor',
+		hobby: 'tunning de carros',
+		outroHobby: 'futebol',
+		handicap: 'medo de insetos',
+		vantagens: ["barricar", "atacar", "mudar de ambiente"],
+		desvantagens: ["procurar uma coisa"] },
+	{ profissao: 'empresário',
+		hobby: 'acampar',
+		outroHobby: 'escalada',
+		handicap: 'labirintite',
+		vantagens: ["cozinhar", "barricar", "carregar"],
+		desvantagens: ["mudar de ambiente"] }];
+
+var template = document.querySelector('.template');
+
+personagens.forEach(function (p) {
+	var item = template.cloneNode(true);
+	item.classList.remove('template');
+	item.querySelector('.occupation').innerHTML += p.profissao;
+	item.querySelector('.hobbies').innerHTML += p.hobby + ' & ' + p.outroHobby;
+	item.querySelector('.handicap').innerHTML += p.handicap;
+	item.querySelector('.advantages').innerHTML += p.vantagens.join(", ");
+	item.querySelector('.disadvantages').innerHTML += p.desvantagens.join(", ");
+	document.getElementById('fichas').appendChild(item);
+});
+
+template.remove();
+
+</script>
