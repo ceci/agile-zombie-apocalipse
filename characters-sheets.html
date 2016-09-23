@@ -1,0 +1,110 @@
+<meta charset="UTF-8">
+
+<ul id="fichas">
+	<li class="template">
+		<dt class="name"><strong>Nome:</strong> </dt>
+		<dd class="occupation"><strong>Profissão:</strong> </dd>
+		<dd class="hobbies"><strong>Hobbies:</strong> </dd>
+		<dd class="handicap"><strong>Handicap:</strong> </dd>
+	</li>
+</ul>
+
+<style type="text/css">
+	ul {
+		list-style: none;
+	}
+
+	dd {
+		text-indent: none;
+	}
+</style>
+
+<script type="text/javascript">
+var personagens = [
+	{ profissao: 'motorista de uber',
+		hobby: 'Crossfit',
+		outroHobby: 'desmontar coisas',
+		handicap: 'acumulador' }, 
+	{ profissao: 'instalador de tv a cabo',
+		hobby: 'tocar instrumento',
+		outroHobby: 'jogos de bar',
+		handicap: 'usa crocs' }, 
+	{ profissao: 'psicólogo',
+		hobby: 'cozinhar',
+		outroHobby: 'correr',
+		handicap: 'diabetico' }, 
+	{ profissao: 'artista',
+		hobby: 'mentir',
+		outroHobby: 'airsoft',
+		handicap: 'asma' }, 
+	{ profissao: 'consultor de seguros',
+		hobby: 'fazer drinks',
+		outroHobby: 'meditacao',
+		handicap: 'claustrofobia' }, 
+	{ profissao: 'advogado',
+		hobby: 'pintar',
+		outroHobby: 'danca',
+		handicap: 'medo de altura' }, 
+	{ profissao: 'mecânico',
+		hobby: 'criar plantas',
+		outroHobby: 'construir robos',
+		handicap: 'perda de memoria recente' }, 
+	{ profissao: 'astrologo',
+		hobby: 'esportes radicais',
+		outroHobby: 'velejar',
+		handicap: 'daltonico' }, 
+	{ profissao: 'manicure',
+		hobby: 'fotografia',
+		outroHobby: 'artesanato',
+		handicap: 'hipocondríaco' }, 
+	{ profissao: 'estudante',
+		hobby: 'counter striker',
+		outroHobby: 'ufologia',
+		handicap: 'comportamento anti-social' }, 
+	{ profissao: 'dev',
+		hobby: 'desafios de lógica',
+		outroHobby: 'slackline',
+		handicap: 'vegetariano' }, 
+	{ profissao: 'psicólogo',
+		hobby: 'criar animais',
+		outroHobby: 'costurar',
+		handicap: 'canhoto' }, 
+	{ profissao: 'medico',
+		hobby: 'pilotar drones',
+		outroHobby: 'astronomia',
+		handicap: 'daltonico' }, 
+	{ profissao: 'relojoeiro',
+		hobby: 'musica',
+		outroHobby: 'colecionar selos',
+		handicap: 'miope' }, 
+	{ profissao: 'arquiteto',
+		hobby: 'baladeiro',
+		outroHobby: 'mímica',
+		handicap: 'não fala a lingua do grupo' }, 
+	{ profissao: 'chaveiro',
+		hobby: 'parkour',
+		outroHobby: 'yoga',
+		handicap: 'mania por limpeza' }, 
+	{ profissao: 'professor',
+		hobby: 'tunning de carros',
+		outroHobby: 'futebol',
+		handicap: 'medo de insetos' }, 
+	{ profissao: 'empresário',
+		hobby: 'acampar',
+		outroHobby: 'escalada',
+		handicap: 'labirintite' }];
+
+var template = document.querySelector('.template');
+
+personagens.forEach(function (p) {
+	var item = template.cloneNode(true);
+	item.classList.remove('template');
+	item.querySelector('.occupation').innerHTML += p.profissao;
+	item.querySelector('.hobbies').innerHTML += p.hobby + ' & ' + p.outroHobby;
+	item.querySelector('.handicap').innerHTML += p.handicap;
+	document.getElementById('fichas').appendChild(item);
+});
+
+template.remove();
+
+</script>
